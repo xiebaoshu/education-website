@@ -18,8 +18,6 @@ import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.stream.Collectors;
 
 /**
  * <p>
@@ -87,6 +85,9 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
     public void saveRolePermissionRealtionShip(String roleId, String[] permissionIds) {
 
         rolePermissionService.remove(new QueryWrapper<RolePermission>().eq("role_id", roleId));
+
+  
+
         List<RolePermission> rolePermissionList = new ArrayList<>();
         for(String permissionId : permissionIds) {
             if(StringUtils.isEmpty(permissionId)) continue;
@@ -186,7 +187,7 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
      * @param treeNodes
      * @return
      */
-    private static Permission findChildren(Permission treeNode,List<Permission> treeNodes) {
+    private static Permission findChildren(Permission treeNode, List<Permission> treeNodes) {
         treeNode.setChildren(new ArrayList<Permission>());
 
         for (Permission it : treeNodes) {
@@ -234,7 +235,6 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
         return finalNode;
     }
 
-
     private static Permission selectChildren(Permission permissionNode, List<Permission> permissionList) {
         //1 因为向一层菜单里面放二层菜单，二层里面还要放三层，把对象初始化
         permissionNode.setChildren(new ArrayList<Permission>());
@@ -257,9 +257,6 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
         return permissionNode;
     }
 
-
-
-
     //============递归删除菜单==================================
     @Override
     public void removeChildByIdGuli(String id) {
@@ -275,7 +272,7 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
     //2 根据当前菜单id，查询菜单里面子菜单id，封装到list集合
     private void selectPermissionChildById(String id, List<String> idList) {
         //查询菜单里面子菜单id
-        QueryWrapper<Permission>  wrapper = new QueryWrapper<>();
+        QueryWrapper<Permission> wrapper = new QueryWrapper<>();
         wrapper.eq("pid",id);
         wrapper.select("id");
         List<Permission> childIdList = baseMapper.selectList(wrapper);

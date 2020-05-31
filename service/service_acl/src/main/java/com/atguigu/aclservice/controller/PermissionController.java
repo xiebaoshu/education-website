@@ -20,7 +20,6 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/admin/acl/permission")
-//@CrossOrigin
 public class PermissionController {
 
     @Autowired
@@ -30,20 +29,20 @@ public class PermissionController {
     @ApiOperation(value = "查询所有菜单")
     @GetMapping
     public R indexAllPermission() {
-        List<Permission> list =  permissionService.queryAllMenuGuli();
+        List<Permission> list =  permissionService.queryAllMenu();
         return R.ok().data("children",list);
     }
 
     @ApiOperation(value = "递归删除菜单")
     @DeleteMapping("remove/{id}")
     public R remove(@PathVariable String id) {
-        permissionService.removeChildByIdGuli(id);
+        permissionService.removeChildById(id);
         return R.ok();
     }
 
     @ApiOperation(value = "给角色分配权限")
     @PostMapping("/doAssign")
-    public R doAssign(String roleId,String[] permissionId) {
+    public R doAssign(String roleId, String[] permissionId) {
         permissionService.saveRolePermissionRealtionShipGuli(roleId,permissionId);
         return R.ok();
     }

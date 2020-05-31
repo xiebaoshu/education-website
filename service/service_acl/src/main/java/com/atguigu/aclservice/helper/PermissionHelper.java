@@ -36,7 +36,7 @@ public class PermissionHelper {
      * @param treeNodes
      * @return
      */
-    public static Permission findChildren(Permission treeNode,List<Permission> treeNodes) {
+    public static Permission findChildren(Permission treeNode, List<Permission> treeNodes) {
         treeNode.setChildren(new ArrayList<Permission>());
 
         for (Permission it : treeNodes) {

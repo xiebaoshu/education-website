@@ -28,7 +28,6 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/admin/acl/user")
-//@CrossOrigin
 public class UserController {
 
     @Autowired
@@ -47,7 +46,7 @@ public class UserController {
             @PathVariable Long limit,
 
             @ApiParam(name = "courseQuery", value = "查询对象", required = false)
-             User userQueryVo) {
+                    User userQueryVo) {
         Page<User> pageParam = new Page<>(page, limit);
         QueryWrapper<User> wrapper = new QueryWrapper<>();
         if(!StringUtils.isEmpty(userQueryVo.getUsername())) {
@@ -96,7 +95,7 @@ public class UserController {
 
     @ApiOperation(value = "根据用户分配角色")
     @PostMapping("/doAssign")
-    public R doAssign(@RequestParam String userId,@RequestParam String[] roleId) {
+    public R doAssign(@RequestParam String userId, @RequestParam String[] roleId) {
         roleService.saveUserRoleRealtionShip(userId,roleId);
         return R.ok();
     }
