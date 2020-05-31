@@ -22,7 +22,7 @@ public class SwaggerConfig {
                 .apiInfo(webApiInfo())
                 .select()
 //                如果匹配以下路径，不输出
-                .paths(Predicates.not(PathSelectors.regex("/admin/.*")))
+//                .paths(Predicates.not(PathSelectors.regex("/admin/.*")))
                 .paths(Predicates.not(PathSelectors.regex("/error.*")))
                 .build();
 

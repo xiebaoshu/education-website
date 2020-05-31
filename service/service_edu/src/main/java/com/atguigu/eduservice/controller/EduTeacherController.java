@@ -27,7 +27,6 @@ import java.util.List;
 @Api(description="讲师管理")
 @RestController
 @RequestMapping("/eduservice/teacher")
-@CrossOrigin  //解决跨域
 public class EduTeacherController {
     @Autowired
     private EduTeacherService teacherService;
