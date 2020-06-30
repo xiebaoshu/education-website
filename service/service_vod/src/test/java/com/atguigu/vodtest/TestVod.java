@@ -14,8 +14,9 @@ import java.util.List;
 public class TestVod {
 
     public static void main(String[] args) {
-        String accessKeyId = "LTAI4GK3mwrTo7fQTYbZCt6c";
-        String accessKeySecret = "p791FcS2p92ygYlKU1iYwryMKygBnN";
+        //填入你自己的密钥
+        String accessKeyId = "LTAI4GK3mwrTo7fQTYbZCt62";
+        String accessKeySecret = "p791FcS2p92ygYlKU1iYwryMKygBn2";
 
         String title = "6 - What If I Want to Move Faster - upload by sdk";   //上传之后文件名称
         String fileName = "F:/6 - What If I Want to Move Faster.mp4";  //本地文件路径和名称
