@@ -22,7 +22,7 @@ public class MsmServiceImpl implements MsmService {
         if(StringUtils.isEmpty(phone)) return false;
         //填入你自己的密钥
         DefaultProfile profile =
-                DefaultProfile.getProfile("default", "LTAI4GK3mwrTo7fQTYbZCt62", "p791FcS2p92ygYlKU1iYwryMKygBn2");
+                DefaultProfile.getProfile("default", "LTAI4GK3mwrTo7f112362", "p791FcS123wryMKygBn2");
         IAcsClient client = new DefaultAcsClient(profile);
 
         //设置相关固定的参数
